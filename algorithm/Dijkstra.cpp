@@ -74,26 +74,31 @@ void dijkstra1(int start)
 	
 	while(!pq.empty())
 	{
-		int current=pq.top().first; //
+		 
+		int current=pq.top().first; 
 		// shortes (-) 
 		int distance=-pq.top().second;
 		pq.pop();
+		
 		//not shortest -> skip
 		if(dist1[current]<distance)
 		{
 			continue;
 		}
+		
 		for(int i=0;i<graph1[current].size();i++)
 		{
-			int next=graph1[current][i].first;
-			int nextDistance=distance+graph1[current][i].second;
+			int next=graph1[current][i].first; //adj node 
+		
+			int nextDistance=distance+graph1[current][i].second;//adj dist 
 			
-			if(nextDistance<dist1[next])
+			if(nextDistance< dist1[next]) 
 			{
 				dist1[next]=nextDistance;
 				pq.push(make_pair(next,-nextDistance));
 			}
 		}
+		
 	}
 	
 	
