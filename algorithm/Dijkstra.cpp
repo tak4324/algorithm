@@ -74,9 +74,9 @@ void dijkstra1(int start)
 	
 	while(!pq.empty())
 	{
-		int current=pq.top(); //
+		int current=pq.top().first; //
 		// shortes (-) 
-		int distance=-pq.top();
+		int distance=-pq.top().second;
 		pq.pop();
 		//not shortest -> skip
 		if(dist1[current]<distance)
