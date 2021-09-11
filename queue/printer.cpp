@@ -6,8 +6,7 @@ using namespace std;
 
 
 int solution(vector<int> priorities, int location) {
-    int answer = 0;
-    
+    int answer = 0; 
     priority_queue<int> pq;
     queue<pair<int,int> > q;
 
@@ -17,6 +16,8 @@ int solution(vector<int> priorities, int location) {
     	q.push(make_pair(i,priorities[i]));
     	pq.push(priorities[i]);
 	}   
+	//ex)   q 2 1 3 2
+	// ex) pq 3 2 2 1
 	
 	while(!q.empty())
 	{
@@ -28,14 +29,15 @@ int solution(vector<int> priorities, int location) {
 		{
 			pq.pop();
 			answer++;
-			if(location==first)
+			if(first==location)// smae index
 			{
 				break;
-			}
-		}else
-		{
+			} 	
+		}else if(second !=pq.top())
+ 		{
 			q.push(make_pair(first,second));
 		}
+		
 	}
 	
 	return answer;
